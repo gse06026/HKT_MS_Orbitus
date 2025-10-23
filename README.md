@@ -26,7 +26,7 @@ Built for the **Microsoft AI Skill Fest Hackathon**, the project integrates **Az
 
 Click the thumbnail below to watch a video demonstration of the Orbitus AI agent in action.
 
-[![Demo Video](https://img.youtube.com/vi/XH4HpWa7h_g/0.jpg)](https://youtu.be/XH4HpWa7h_g?feature=shared)
+[![Demo Video](https://img.youtube.com/vi/XH4HpWa7h_g/maxresdefault.jpg)](https://www.youtube.com/watch?v=XH4HpWa7h_g)
 
 ---
 
