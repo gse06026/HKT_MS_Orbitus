@@ -9,8 +9,6 @@
 
 **AI Agent built with Azure AI Studio to assist high school teachers**
 
-[Setup](#setup--installation) • [Quick Start](#quick-start) • [Features](#key-features) • [Architecture](#architecture) • [Contributing](#contributing)
-
 </div>
 
 ---
