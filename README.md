@@ -1,84 +1,69 @@
 # HKT_MS_Orbitus
-# AI Agent for High School Teachers - AI Skill Fest Hackathon Project
 
-## 🚀 Description
+<div align="center">
 
-This project is an AI assistant designed specifically to support high school teachers by providing quick access to school information, assisting with administrative queries, and potentially helping with data analysis tasks. Developed as part of the Microsoft AI Skill Fest AI Agents Hackathon, this agent aims to reduce teacher workload to manage large volumn of data timely and improve efficiency by leveraging Azure AI capabilities.
+[![License](https://img.shields.io/github/license/gse06026/HKT_MS_Orbitus.svg)](./LICENSE)
+[![Azure](https://img.shields.io/badge/Azure-AI%20Foundry-blue.svg)](https://ai.azure.com/)
+[![Hackathon](https://img.shields.io/badge/AI%20Skill%20Fest-2025-green.svg)]()
+[![Python](https://img.shields.io/badge/python-%3E%3D3.10-blue.svg)](https://www.python.org/)
 
-The agent understands natural language queries and utilizes a knowledge base derived from school documents (like regulations, calendars, and policies) and can perform calculations or data analysis using Code Interpreter.
+**AI Agent built with Azure AI Studio to assist high school teachers**
 
-## ✨ Features
+[Setup](#setup--installation) • [Quick Start](#quick-start) • [Features](#key-features) • [Architecture](#architecture) • [Contributing](#contributing)
 
-*   **Knowledge-Based Q&A (RAG):** Answers questions based on uploaded school documents, including:
-    *   Academic Calendar & Event Information
-    *   School Rules & Operating Guidelines (Staff/Student regulations, Safety)
-    *   Curriculum & Assessment Details (e.g., Grade 10 English examples)
-    *   Facility Usage & Equipment Loan Procedures
-    *   Internal System Usage Tips (LMS, Admin Systems)
-    *   Teacher FAQs
-*   **Data Analysis & Calculation (via Code Interpreter):**
-    *   Analyzes anonymized sample data provided in CSV/XLSX files (e.g., calculating average scores, visualizing survey results).
-    *   Performs mathematical calculations and solves equations upon request.
-    *   Processes simple text files (e.g., sorting lists, finding definitions).
-*   **Contextual Understanding:** Uses education-specific terminology and maintains a helpful, professional tone suitable for teachers.
-*   **Safety & Constraints:** Designed to avoid handling sensitive student data and politely decline out-of-scope requests.
+</div>
 
-## ⚙️ How it Works
+---
 
-This AI Agent is built using **Azure AI Foundry**. The core functionality relies on:
+## 🧭 Overview
 
-1.  **Azure OpenAI Service:** Utilizes a powerful language model (Model: gpt-4o-mini) as the agent's "brain".
-2.  **Retrieval-Augmented Generation (RAG):**
-    *   School documents (TXT) containing regulations, calendars, guides, etc., were uploaded and processed into a searchable knowledge base (likely using Azure AI Search behind the scenes).
-    *   When a teacher asks a question, the agent first searches this knowledge base for relevant information.
-3.  **Generation:** The retrieved information is then fed to the language model along with the original question and the system instructions (prompt) to generate an accurate and contextually relevant answer.
-4.  **Code Interpreter Action:** For specific tasks like calculations or data analysis on provided files, the agent leverages the built-in Code Interpreter tool. The LLM generates Python code based on the request and the uploaded data files, which is then executed in a secure sandbox environment.
-5.  **System Instructions (Prompt Engineering):** Carefully crafted instructions guide the agent's persona, capabilities, limitations, and tool usage logic.
+**HKT_MS_Orbitus** is an AI agent designed for high school teachers to simplify administrative and academic workflows.
+Built for the **Microsoft AI Skill Fest Hackathon**, the project integrates **Azure AI Foundry** and **Azure OpenAI** services to deliver contextual, domain-specific assistance.
 
-## 🛠️ Technology Stack
+---
 
-*   **Platform:** Azure AI Foundry
-*   **Core AI Service:** Azure OpenAI Service (Model: gpt-4o-mini)
-*   **Knowledge Base:** Azure AI Search (Managed via Azure AI Foundry Data sources)
-*   **Actions:** Code Interpreter (Built-in Azure AI Foundry Action)
-*   **Knowledge Files:** TXT
+## 🎬 Demo Video
 
-## 📚 Setup & Configuration (Conceptual)
+Click the thumbnail below to watch a video demonstration of the Orbitus AI agent in action.
 
-To conceptually replicate this agent:
+[![Demo Video](https://img.youtube.com/vi/XH4HpWa7h_g/0.jpg)](https://youtu.be/XH4HpWa7h_g?feature=shared)
 
-1.  Create an Azure AI Hub and an associated Azure OpenAI resource (deploying the desired model).
-2.  In Azure AI Foundry, create a new Agent project.
-3.  **Knowledge Setup:**
-    *   Prepare knowledge documents (like those in the `knowledge_files` folder of this repository). **Ensure all sensitive information is removed/anonymized.**
-    *   Upload these documents via the Data sources -> `files` option to create a searchable index.
-    *   Connect this data source in the Agent's 'Knowledge' settings.
-4.  **Code Interpreter Setup:**
-    *   Prepare sample data files (like those in the `code_interpreter_files` folder).
-    *   Upload these files via the 'Manage files for code interpreter' option in the Agent's 'Actions' settings.
-5.  **Instructions:** Configure the Agent's 'Instructions' (system prompt) similar to the content in `config/agent_instructions.md`. Ensure guidelines for using knowledge sources and Code Interpreter are included.
-6.  **Actions:** Enable the 'Code Interpreter' action in the Agent's 'Actions' settings.
-7.  **Testing:** Use the Azure AI Foundry Playground to test the agent's responses to various queries related to the knowledge base and data analysis tasks.
+---
 
-**Note:** This repository contains the configuration files and knowledge assets, not the deployed Azure resources themselves. **Do NOT commit any API keys or sensitive credentials.**
+## ✨ Key Features
 
-## 🎬 Demo
-https://youtu.be/XH4HpWa7h_g?feature=shared
+- **Knowledge-Based Q&A (RAG)**
+  - Understands school-specific questions using uploaded knowledge documents
+  - Supports topics such as:
+    - Academic calendar & events
+    - Rules & policies (staff/student regulations)
+    - Curriculum and assessment guides
+    - Equipment & facility procedures
+    - Internal system usage (LMS, admin tools)
 
-## 👥 Team
+- **Data Analysis & Calculation (Code Interpreter)**
+  - Executes math and data operations on uploaded files (CSV/XLSX/TXT)
+  - Generates statistical summaries and visualizations
+  - Runs Python code securely in a sandboxed environment
 
-*   **@gse06026:**
-    *   Project Lead
-    *   AI Agent Implementation
-    *   Action/Knowledge Definition
-*   **@M009245:**
-    *   Project Management
-    *   Action/Knowledge Support
-    *   Quality Assurance
-    *   Technical Contribution
+- **Contextual Understanding**
+  - Adapts to educational tone and terminology
+  - Maintains professionalism and privacy awareness
 
-## 🙏 Acknowledgements
+- **Safety & Compliance**
+  - Avoids sensitive or student-identifiable data
+  - Rejects inappropriate or out-of-scope queries
 
-------PLAN TO ADD A MENTORS, DOCUMENTATION, RESOURCES HERE------
+---
+
+## ⚙️ Architecture
+
+| Component | Description |
+|------------|-------------|
+| **Azure AI Foundry** | Core development environment for the agent |
+| **Azure OpenAI (gpt-4o-mini)** | Primary language model for reasoning and generation |
+| **Azure AI Search** | Backend RAG knowledge retrieval system |
+| **Code Interpreter** | Executes user-requested Python analysis |
+| **TXT Knowledge Files** | Structured school documents forming the knowledge base |
 
 ---
